@@ -27,8 +27,15 @@ VALIDATE (){
     echo -e  "$2 is $G sucess..$N"&>>$LOG_FILE
     fi
 }
-
+USAGE(){
+   echo -e "$R USAGE:: $N sudo sh 15-redirectors.sh package1 package2..."
+   exit 1
+}
 CHECK_ROOT
+
+if [$# -eq o ]
+then 
+  USAGE 
 
 
  for package in $@
@@ -40,6 +47,6 @@ then
     dnf install $package -y &>>$LOG_FILE
     VALIDATE $? "Installing $package"
 else
-    echo "$package is already $Y installed..nothing to do $N" &>>$LOG_FILE
+    echo -e"$package is already $Y installed..nothing to do $N" &>>$LOG_FILE
 fi
  done
