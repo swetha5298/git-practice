@@ -9,12 +9,12 @@ then
   exit 1 
 fi
 
-  dnf list install gitttt
+  dnf list install git
 
 if [ $? -ne 0 ]
 then 
   echo "Git is not installed/going to intsall it.."
-  dnf install gittt -y
+  dnf install git -y
 if [ $? -ne 0 ]
 then
   echo  "Git installation is not sucess..check it"
