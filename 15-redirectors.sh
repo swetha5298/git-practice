@@ -5,11 +5,13 @@ SCRIPT_NAME=$(echo $0 |cut -d "." -f1)
 TIMESTAMP=$(date +%y-%m-%d-%H-%M%S)
 LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME-$TIME_STAMP.log"
 mkdir -p $LOGS_FOLDER
+
 USERID=$(id -u)
 R="\e[31m"
 G="\e[32m"
 N="\e[0m"
 Y="\e[33m"
+
 CHECK_ROOT (){
     if [ $USERID -ne 0 ]
 then
@@ -25,7 +27,7 @@ VALIDATE (){
     exit 1
     else
     echo -e  "$2 is $G sucess..$N"&>>$LOG_FILE
-    fi
+fi
 }
 USAGE(){
    echo -e "$R USAGE:: $N sudo sh 15-redirectors.sh package1 package2..."
@@ -36,9 +38,9 @@ CHECK_ROOT
 if [$# -eq o ]
 then 
   USAGE 
+fi
 
-
- for package in $@
+for package in $@
  do
   dnf list install $package &>>$LOG_FILE
 if [$? -ne o ]
@@ -48,6 +50,6 @@ then
     VALIDATE $? "Installing $package"
 else
     echo -e"$package is already $Y installed..nothing to do $N" &>>$LOG_FILE
-fi
+ fi
 
 done
