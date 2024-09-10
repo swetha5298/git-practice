@@ -35,7 +35,7 @@ USAGE(){
 }
 CHECK_ROOT
 
-if [ $# -eq o ]
+if [ $# -eq 0 ]
 then 
   USAGE 
 fi
