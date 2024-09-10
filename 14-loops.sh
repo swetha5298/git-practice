@@ -35,4 +35,5 @@ then
     VALIDATE $? "Installing $package"
 else
     echo "$package is already installed..nothing to do"
+fi
  done
