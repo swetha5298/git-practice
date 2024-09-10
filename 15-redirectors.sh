@@ -49,4 +49,5 @@ then
 else
     echo -e"$package is already $Y installed..nothing to do $N" &>>$LOG_FILE
 fi
- done
+
+done
