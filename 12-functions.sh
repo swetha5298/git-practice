@@ -6,10 +6,10 @@ USERID=$(id -u)
 VALIDATE (){
     if [ $1 -ne 0 ]
     then
-     echo "Command is failed.."
+     echo "$2 is failed.."
     exit 1
     else
-    echo "command is sucess.."
+    echo "$2 is sucess.."
     fi
 }
 
@@ -21,7 +21,7 @@ fi
 
   dnf list install git
 
-VALIDATE  $?
+VALIDATE  $? "listing Git"
 
 # if [ $? -ne 0 ]
 # then 
